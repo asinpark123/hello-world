@@ -1,0 +1,3 @@
+problem: want to open a set of programs with one click
+
+try1: make a python program, make .py file into exe file
