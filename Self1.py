@@ -30,6 +30,36 @@ def checkIfProcessRunning(processName):
     return False
 
 
+# UI section
+# asks for the name of the process that you're searching to see if it's running
+
+def main():
+    processName = input("What process do you wish to search?: ")
+    nextSearch = ""
+    # still not able to search for another, try a while loop here
+    while (nextSearch != "N" or "n"):
+        if checkIfProcessRunning(processName) == True:
+            print(f"{processName} is running")
+
+        else:
+            print(f"{processName} is not running")
+        nextSearch = input("Do you wish to search for another? (Y/N): ")
+        if (nextSearch == "N" or "n"):
+            break
+        
+
+    # break sequence
+    # nextSearch = input("Do you wish to search for another? (Y/N): ")
+    # if (nextSearch == "N" or "n"):
+    #     input("Press Enter to exit")
+    # elif (nextSearch == "Y" or "y"):
+    #     main()
+    # else:
+    #     nextSearch = input("Wrong key input - Do you wish to search for another? (Y/N): ")
+
+    
+
+main()
 
 
 
