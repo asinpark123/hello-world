@@ -9,6 +9,9 @@ import psutil
 
 pathList = ()
 
+# udemySet is for opening set of directories that I need for studying in Udemy
+# come back to this later
+
 def udemySet(self, pathList):
     pass
 
@@ -17,7 +20,7 @@ def udemySet(self, pathList):
 
 def checkIfProcessRunning(processName):
     '''
-    Check if there is any running process that contains the given name processName.
+    Check if there is any running process that contains the given process's name stored in processName.
     '''
     #Iterate over the all the running process
     for proc in psutil.process_iter():
@@ -35,9 +38,9 @@ def checkIfProcessRunning(processName):
 
 def main():
     processName = input("What process do you wish to search?: ")
-    nextSearch = ""
+    nextSearch = "Y"
     # still not able to search for another, try a while loop here
-    while (nextSearch != "N" or "n"):
+    while (nextSearch == "Y" or "y"):
         if checkIfProcessRunning(processName) == True:
             print(f"{processName} is running")
 
