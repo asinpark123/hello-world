@@ -27,6 +27,7 @@ def checkIfProcessRunning(processName):
         try:
             # Check if process name contains the given name string.
             if processName.lower() in proc.name().lower():
+                
                 return True
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
@@ -38,17 +39,22 @@ def checkIfProcessRunning(processName):
 
 def main():
     processName = input("What process do you wish to search?: ")
-    nextSearch = "Y"
-    # still not able to search for another, try a while loop here
-    while (nextSearch == "Y" or "y"):
+    nextSearch = ""
+
+    while True:
         if checkIfProcessRunning(processName) == True:
             print(f"{processName} is running")
-
         else:
             print(f"{processName} is not running")
-        nextSearch = input("Do you wish to search for another? (Y/N): ")
-        if (nextSearch == "N" or "n"):
+
+    # break sequence 
+        nextSearch = input("Press Y to search for another process or any other key to exit: ")
+        if (nextSearch == "Y" or "y"):
+            main()
+
+        elif (nextSearch == "N" or "n"):
             break
+
         
 
     # break sequence
